@@ -9,7 +9,7 @@ createApp({
             Name: '',
             Email: '',
             Number: '',
-            User: [],
+            User: '',
             Cards: [],
             Shop: [{
                 Price: 10000,
@@ -37,6 +37,7 @@ createApp({
                         if (element.Password == this.Passl) {
                             this.Log = 2;
                             localStorage.setItem('User',JSON.stringify(element));
+                            this.User = element;
                         } else {
                             swal('Error', 'Invalid Password', 'error');
                         }
