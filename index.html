@@ -13,12 +13,12 @@
 <body>
     <div id="root">
         <!-- inicio sesion -->
-        <div class="container w-25 mt-5 mb-5  w-50-responsive border" >
+        <div class="container w-25 mt-5 mb-5  w-50-responsive border" v-if="Log == 0">
             <form >
                 <legend class="text-success fw-bold">Iniciar sesión</legend>
-                <input v-model="Username" type="text" class="form-control"aria-describedby="emailHelp" placeholder="Usuario">
+                <input v-model="Userl" type="text" class="form-control"aria-describedby="emailHelp" placeholder="Usuario">
                 <br>
-                <input v-model="Password" type="password" class="form-control"aria-describedby="emailHelp" placeholder="Password">
+                <input v-model="Passl" type="password" class="form-control"aria-describedby="emailHelp" placeholder="Password">
                 <br>
                 <button type='submit' class="btn btn-success mb-2" @click="Login">Iniciar sesión</button>
                 <br>
