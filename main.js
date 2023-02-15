@@ -8,7 +8,7 @@ createApp({
             Users: [],
             Name: '',
             Email: '',
-            Number: '',
+            Phone: '',
             User: '',
             Cards: [],
             Shop: [{
@@ -36,13 +36,12 @@ createApp({
                     if (element.Username == this.Userl) {
                         if (element.Password == this.Passl) {
                             this.Log = 2;
-                            localStorage.setItem('User',JSON.stringify(element));
+                            localStorage.setItem('User', JSON.stringify(element));
                             this.User = element;
                         } else {
                             swal('Error', 'Invalid Password', 'error');
                         }
                     } else {
-
                         swal('Error', 'Invalid Username', 'error');
                     }
                 })
@@ -50,7 +49,29 @@ createApp({
             }
         },
         Register() {
-
+            let Users = JSON.parse(localStorage.getItem('Users'));
+            let flag = true;
+            if (Users != null) {
+                Users.map(element => {
+                    if (element.Username == this.Userl) {
+                        swal('Error', 'Username already exist', 'error');
+                        flag = false;
+                    }
+                })
+            }
+            if (flag || Users == null) {
+                this.Users.push({
+                    Username: this.Userl,
+                    Name: this.Name,
+                    Email: this.Email,
+                    Phone: this.Phone,
+                    Password: this.Passl,
+                    RM: 0,
+                    Collection: [],
+                });
+                localStorage.setItem('Users', JSON.stringify(this.Users));
+                swal('Complete', 'User successfully registered', 'success');
+            }
         },
         Cart() {
 
@@ -86,5 +107,8 @@ createApp({
         (localStorage.getItem('Cards') == null) ?
             this.ResultsC() :
             this.Cards = JSON.parse(localStorage.getItem('Cards'));
+        if (localStorage.getItem('Users') != null) {
+            this.Users = JSON.parse(localStorage.getItem('Users'));
+        }
     },
 }).mount("#root");
