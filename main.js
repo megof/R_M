@@ -12,47 +12,64 @@ createApp({
             User: [],
             Cards: [],
             Shop: [{
-                    Price: 10000,
-                    Amount: 100,
-                   },{
-                    Price: 20000,
-                    Amount: 210,
-                   },{
-                    Price: 50000,
-                    Amount: 650,
-                   },{
-                    Price: 100000,
-                    Amount: 1500,
-                   },],
+                Price: 10000,
+                Amount: 100,
+            }, {
+                Price: 20000,
+                Amount: 210,
+            }, {
+                Price: 50000,
+                Amount: 650,
+            }, {
+                Price: 100000,
+                Amount: 1500,
+            },],
             RM: 0,
+            Page: 1,
         }
     },
     methods: {
-        Login(){
+        Login() {
+            let Users = localStorage.getItem('Users');
+            if (Users != null) {
+                Users.map(element => {
+                    if (element.Username == this.Userl) {
+                        if (element.Password == this.Passl) {
+                            this.Log = 2;
+                            localStorage.setItem('User',JSON.stringify(element));
+                        } else {
+                            swal('Error', 'Invalid Password', 'error');
+                        }
+                    } else {
+
+                        swal('Error', 'Invalid Username', 'error');
+                    }
+                })
+
+            }
+        },
+        Register() {
 
         },
-        Register(){
-
-        },        
-        Cart(){
-
-        },        
-        Logout(){
-
-        },        
-        RandomPrice(){
-
-        },        
-        
-        RandomType(){
-
-        },       
-        
-        ShopRM(){
+        Cart() {
 
         },
-        
-        BuyRP(){
+        Logout() {
+
+        },
+        RandomPrice() {
+
+        },
+
+        RandomType() {
+
+        },
+
+        ShopRM() {
+
+        },
+
+        BuyRP() {
 
         },
         async ResultsC() {
@@ -64,7 +81,7 @@ createApp({
     },
     mounted() {
     },
-    created() {        
+    created() {
         (localStorage.getItem('Cards') == null) ?
             this.ResultsC() :
             this.Cards = JSON.parse(localStorage.getItem('Cards'));
