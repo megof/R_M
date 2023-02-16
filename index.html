@@ -13,7 +13,7 @@
 <body>
     <div id="root">
         <!-- inicio sesion -->
-        <div class="container w-25 mt-5 mb-5  w-50-responsive border" >
+        <div class="container w-25 mt-5 mb-5  w-50-responsive border" v-if="Log == 0">
             <form >
                 <legend class="text-success fw-bold">Iniciar sesión</legend>
                 <input v-model="Userl" type="text" class="form-control"aria-describedby="emailHelp" placeholder="Usuario" required>
@@ -22,13 +22,31 @@
                 <br>
                 <button type='submit' class="btn btn-success mb-2" @click="Login">Iniciar sesión</button>
                 <br>
-                <button type='submit' class="btn btn-warning mb-2"  >Crear Usuario</button>
+                <button type='submit' class="btn btn-warning mb-2" @click="Log=1">Crear Usuario</button>
             </form>
         </div>
         <!-- Fin inicio sesion -->
 
         <!-- inicio registro -->
-       
+        <div class="container w-25 mt-5 mb-5  w-50-responsive border" v-if="Log == 1">
+            <form >
+                <legend class="text-success fw-bold">Crear cuenta nueva</legend>
+                <input v-model="Userl" type="text" class="form-control"aria-describedby="emailHelp" placeholder="Usuario" required>
+                <br>
+                <input v-model="Name" type="text" class="form-control"aria-describedby="emailHelp" placeholder="Nombre" required>
+                <br>
+                <input v-model="Email" type="email" class="form-control"aria-describedby="emailHelp" placeholder="Email" required>
+                <br>
+                <input v-model="Number" type="number" class="form-control"aria-describedby="emailHelp" placeholder="Telefono" required>
+                <br>
+                <input v-model="Passl" type="password" class="form-control"aria-describedby="emailHelp" placeholder="Password" required>
+                <br>
+                <button type='submit' class="btn btn-success mb-2" @click="Login">Crear cuenta nueva</button>
+                <br>
+                <button type='submit' class="btn btn-warning mb-2" @click="Log=0">Regresar</button>
+                
+            </form>
+        </div>
         <!-- Fin registro -->
     </div>
     <script src="main.js"></script>   
