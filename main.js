@@ -85,11 +85,21 @@ createApp({
         },
 
         ShopRM() {
-
+            this.User.RM += this.RM;
+            localStorage.setItem('User', JSON.stringify(this.User));
+            swal('Purchased', 'Succeddfully purchased', 'success');
+            this.Log = 2;
+            this.RM = 0;
         },
 
-        BuyRP() {
-
+        BuyRM(Amount) {
+            this.RM = Amount;
+            this.Log = 5;
+        },
+        ing(){
+            this.Userl='A';
+            this.Passl='D';
+            this.Login();
         },
         async ResultsC() {
             let Cards = [];
