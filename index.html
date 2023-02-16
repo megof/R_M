@@ -22,13 +22,13 @@
                 <br>
                 <button type='submit' class="btn btn-success mb-2" @click="Login">Iniciar sesión</button>
                 <br>
-                <button type='submit' class="btn btn-warning mb-2"  >Crear Usuario</button>
+                <button type='submit' class="btn btn-warning mb-2" @click="Log=1">Crear Usuario</button>
             </form>
         </div>
         <!-- Fin inicio sesion -->
 
         <!-- inicio registro -->
-        <div class="container w-25 mt-5 mb-5  w-50-responsive border" >
+        <div class="container w-25 mt-5 mb-5  w-50-responsive border" v-if="Log == 1">
             <form >
                 <legend class="text-success fw-bold">Crear cuenta nueva</legend>
                 <input v-model="Userl" type="text" class="form-control"aria-describedby="emailHelp" placeholder="Usuario" required>
