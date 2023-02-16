@@ -20,11 +20,12 @@
                 <br>
                 <input v-model="Passl" type="password" class="form-control"aria-describedby="emailHelp" placeholder="Password">
                 <br>
-                <button class="btn btn-success mb-2" @click="Login">Iniciar sesión</button>
+                <button class="btn btn-success mb-2" @click="ing">Iniciar sesión</button>
                 <br>
                 <button class="btn btn-warning mb-2" @click="Log=1" >Crear Usuario</button>
             </div>
         </div>
+        <!-- Fin inicio sesion -->
         <div v-if="Log == 1">
             <div >
                 <input type="text" v-model="Userl">
@@ -36,9 +37,26 @@
                 <button @click="Log=0">Regresar</button>
             </div>
         </div>
-        <!-- Fin inicio sesion -->
+        <div v-if="Log == 2">
+            <Label>Inicio</Label>
+            <button @click="Log=4">Coin</button>
+        </div>
+        <div v-if="Log == 3">
+            <Label>Perfil</Label>
+        </div>
+        <div v-if="Log == 4">
+            <Label>CompraRM</Label>
+            <button v-for="coin in Shop" @click="BuyRM(coin.Amount)">{{coin.Amount}}</button>
+        </div>
+        <div v-if="Log == 5">
+            <Label>Pago</Label>
+            <button @click="ShopRM">Comprar</button>
+        </div>
+        <div v-if="Log == 6">
+            <Label>Compra</Label>
+        </div>
     </div>
-    <!-- <script src="main.js"></script>    -->
+    <script src="main.js"></script>
 </body>
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 </html>
