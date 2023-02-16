@@ -99,6 +99,7 @@ createApp({
         ing(){
             this.Userl='A';
             this.Passl='D';
+            this.Log = 2;
             this.Login();
         },
         async ResultsC() {

@@ -26,6 +26,8 @@
             </div>
         </div>
         <!-- Fin inicio sesion -->
+
+        <!--  inicio registro -->
         <div v-if="Log == 1">
             <div >
                 <input type="text" v-model="Userl">
@@ -37,21 +39,87 @@
                 <button @click="Log=0">Regresar</button>
             </div>
         </div>
+        <!--  fin registro -->
+
+        <!--  inicio de inicio -->
         <div v-if="Log == 2">
             <Label>Inicio</Label>
-            <button @click="Log=4">Coin</button>
+            <h1>RP $5000</h1>
+
+            <button @click="Log=4">Comprar RP</button>
+            <button @click="Log=3">Ver Perfil</button>
+            <button @click="Log=0">Salir</button>
+            <h3>Hola David</h3>
+            <h3>Bienvenido a la subasta</h3>
+            <table>
+                <tbody>
+                    <tr>
+                        <td>aqui va una tarjeta <button @click="Log=6">Buy Target</button></td>
+                        <td>aqui va una tarjeta <button @click="Log=6">Buy Target</button></td>
+                        <td>aqui va una tarjeta <button @click="Log=6">Buy Target</button></td>
+                    </tr>
+                    <tr>
+                        <td>aqui va una tarjeta <button @click="Log=6">Buy Target</button></td>
+                        <td>aqui va una tarjeta <button @click="Log=6">Buy Target</button></td>
+                        <td>aqui va una tarjeta <button @click="Log=6">Buy Target</button></td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
-        <div v-if="Log == 3">
+        <!--  fin de inicio -->
+
+        <!-- inicio perfil  -->
+        <div v-if="Log == 3"> 
             <Label>Perfil</Label>
+            <h3>Nombre:</h3>
+            <h3>Username: </h3>
+            <h3>RP: $5000</h3>
+            <h3>-------------------------------------</h3>
+            <h3>Colección / Historial</h3>
+            <table>
+                <tbody>
+                    <tr>
+                        <td>aqui va una tarjeta comprada /</td>
+                        <td>aqui va una tarjeta comprada /</td>
+                        <td>aqui va una tarjeta comprada</td>
+                    </tr>
+                    <tr>
+                        <td>aqui va una tarjeta comprada /</td>
+                        <td>aqui va una tarjeta comprada /</td>
+                        <td>aqui va una tarjeta comprada </td>
+                    </tr>
+                </tbody>
+            </table>
+            <button @click="Log=2">Volver</button>
         </div>
-        <div v-if="Log == 4">
+        <!-- fin perfil  -->
+
+        <!-- inicio Compra RM -->
+        <div  v-if="Log == 4">
             <Label>CompraRM</Label>
+            <h3>Compra de Rick Points</h3>
             <button v-for="coin in Shop" @click="BuyRM(coin.Amount)">{{coin.Amount}}</button>
+            <button @click="Log=2">Volver</button>
         </div>
+        <!-- fin Compra RM -->
+
+        <!-- inicio Metodo de pago -->
         <div v-if="Log == 5">
             <Label>Pago</Label>
+            <br>
+            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+            Nequi
+            <br>
+            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+            Target Credit
+            <br>
+            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+            PSE
+            <br>
             <button @click="ShopRM">Comprar</button>
         </div>
+        <!-- fin Metodo de pago -->
+
         <div v-if="Log == 6">
             <Label>Compra</Label>
         </div>
