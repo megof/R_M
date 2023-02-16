@@ -13,12 +13,12 @@
 <body>
     <div id="root">
         <!-- inicio sesion -->
-        <div class="container w-25 mt-5 mb-5  w-50-responsive border" v-if="Log == 0">
+        <div class="container w-25 mt-5 mb-5  w-50-responsive border" >
             <form >
                 <legend class="text-success fw-bold">Iniciar sesión</legend>
-                <input v-model="Userl" type="text" class="form-control"aria-describedby="emailHelp" placeholder="Usuario">
+                <input v-model="Userl" type="text" class="form-control"aria-describedby="emailHelp" placeholder="Usuario" required>
                 <br>
-                <input v-model="Passl" type="password" class="form-control"aria-describedby="emailHelp" placeholder="Password">
+                <input v-model="Passl" type="password" class="form-control"aria-describedby="emailHelp" placeholder="Password" required>
                 <br>
                 <button type='submit' class="btn btn-success mb-2" @click="Login">Iniciar sesión</button>
                 <br>
@@ -26,6 +26,10 @@
             </form>
         </div>
         <!-- Fin inicio sesion -->
+
+        <!-- inicio registro -->
+       
+        <!-- Fin registro -->
     </div>
     <script src="main.js"></script>   
 </body>
