@@ -30,11 +30,12 @@ createApp({
     },
     methods: {
         Login() {
-            let Users = this.Users;//JSON.parse(localStorage.getItem('Users'));
+            let Users = JSON.parse(localStorage.getItem('Users'));
+            let flag = false;
             if (Users != null) {
                 Users.map(element => {
-                    console.log(element.Username+'-'+this.Userl+(element.Username==this.Userl))
                     if (element.Username==this.Userl) {
+                        flag = true;
                         if (element.Password == this.Passl) {
                             this.Log = 2;
                             localStorage.setItem('User', JSON.stringify(element));
@@ -42,13 +43,13 @@ createApp({
                         } else {
                             swal('Error', 'Invalid Password', 'error');
                         }
-                    } else {
-                        console.log('asdasd')
-                        swal('Error', 'Invalid Username', 'error');
                     }
-                });
+                }); 
+                if(!flag){
+                    swal('Error', 'Invalid Username', 'error');
+                }
 
-            }
+            }            
         },
         Register() {
             let Users = JSON.parse(localStorage.getItem('Users'));
