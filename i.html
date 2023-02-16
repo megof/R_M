@@ -44,24 +44,20 @@
         <!--  inicio de inicio -->
         <div v-if="Log == 2">
             <Label>Inicio</Label>
-            <h1>RP $5000</h1>
+            <h3>RM: <h3 v-text="User.RM"></h3></h3>
 
             <button @click="Log=4">Comprar RP</button>
             <button @click="Log=3">Ver Perfil</button>
             <button @click="Log=0">Salir</button>
-            <h3>Hola David</h3>
+            <h3><h3 v-text="User.Username"></h3></h3>
             <h3>Bienvenido a la subasta</h3>
             <table>
                 <tbody>
-                    <tr>
-                        <td>aqui va una tarjeta <button @click="Log=6">Buy Target</button></td>
-                        <td>aqui va una tarjeta <button @click="Log=6">Buy Target</button></td>
-                        <td>aqui va una tarjeta <button @click="Log=6">Buy Target</button></td>
-                    </tr>
-                    <tr>
-                        <td>aqui va una tarjeta <button @click="Log=6">Buy Target</button></td>
-                        <td>aqui va una tarjeta <button @click="Log=6">Buy Target</button></td>
-                        <td>aqui va una tarjeta <button @click="Log=6">Buy Target</button></td>
+                    <tr v-for="C in Cards">
+                        <td>{{C[0].id}} - {{C[0].name}} <button @click="Log=6">Buy Target</button></td>
+                        <td>{{C[1].id}} - {{C[1].name}} <button @click="Log=6">Buy Target</button></td>
+                        <td>{{C[2].id}} - {{C[2].name}} <button @click="Log=6">Buy Target</button></td>
+                        <td>{{C[3].id}} - {{C[3].name}} <button @click="Log=6">Buy Target</button></td>
                     </tr>
                 </tbody>
             </table>
@@ -71,9 +67,8 @@
         <!-- inicio perfil  -->
         <div v-if="Log == 3"> 
             <Label>Perfil</Label>
-            <h3>Nombre:</h3>
-            <h3>Username: </h3>
-            <h3>RP: $5000</h3>
+            <h3>Username: <h3 v-text="User.Username"></h3></h3>
+            <h3>RM: <h3 v-text="User.RM"></h3></h3>
             <h3>-------------------------------------</h3>
             <h3>Colección / Historial</h3>
             <table>

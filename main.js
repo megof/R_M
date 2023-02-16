@@ -97,6 +97,19 @@ createApp({
             this.Log = 5;
         },
         ing(){
+            let Users = JSON.parse(localStorage.getItem('Users'));
+            if (Users == null) {
+                this.Users.push({
+                    Username: 'A',
+                    Name: 'B',
+                    Email: 'C',
+                    Phone: 0,
+                    Password: 'D',
+                    RM: 0,
+                    Collection: [],
+                });
+                localStorage.setItem('Users', JSON.stringify(this.Users));
+            }
             this.Userl='A';
             this.Passl='D';
             this.Log = 2;
@@ -116,6 +129,14 @@ createApp({
                 Card.Type = Type>=10;                 
                 this.Cards.push(Card)
             })
+            let Aux = [];
+            Aux.push(Cards.slice(0,4));
+            Aux.push(Cards.slice(4,8));
+            Aux.push(Cards.slice(8,12));
+            Aux.push(Cards.slice(12,16));
+            Aux.push(Cards.slice(16,20));
+            localStorage.setItem('pt',JSON.stringify(Aux))
+            this.Cards = Aux;
             localStorage.setItem('Cards', JSON.stringify(this.Cards))
         },
     },
