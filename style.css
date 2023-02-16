@@ -1,4 +1,29 @@
 body {
-    /* background-image: url('876590.png'); */
+    background-image: url('876590.png');
     background-size: cover;
+  }
+
+  #InSe{
+    background-color: #C9C9C9;
+    border-radius: 10px;
+  }
+
+  #t{
+    color: #342F2F;
+  }
+  #t1{
+    color:white;
+  }
+  
+
+  #input{
+    border-radius: 10px;
+  }
+  #BtnGreen{
+    border-radius: 10px;
+    background-color: #55A031;
+  }
+  #BtnBlue{
+    border-radius: 10px;
+    background-color: #4A5A7A;
   }

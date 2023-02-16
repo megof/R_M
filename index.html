@@ -13,16 +13,26 @@
 <body>
     <div id="root">
         <!-- inicio sesion -->
-        <div class="container w-25 mt-5 mb-5  w-50-responsive border" v-if="Log == 0">
+        <div id="InSe" class="container w-25 mt-5 mb-5  w-50-responsive border" v-if="Log == 0">
             <form >
-                <legend class="text-success fw-bold">Iniciar sesión</legend>
-                <input v-model="Userl" type="text" class="form-control"aria-describedby="emailHelp" placeholder="Usuario" required>
                 <br>
-                <input v-model="Passl" type="password" class="form-control"aria-describedby="emailHelp" placeholder="Password" required>
+                <legend id="t" class="text-center fw-bold">Iniciar sesión</legend>
                 <br>
-                <button type='submit' class="btn btn-success mb-2" @click="Login">Iniciar sesión</button>
                 <br>
-                <button type='submit' class="btn btn-warning mb-2" @click="Log=1">Crear Usuario</button>
+                <input id="input" v-model="Userl" type="text" class="form-control"aria-describedby="emailHelp" placeholder="Usuario" required>
+                <br>
+                <input id="input" v-model="Passl" type="password" class="form-control"aria-describedby="emailHelp" placeholder="Password" required>
+                <br>
+                <div class="d-flex justify-content-center">
+                    <button id="BtnBlue" class="btn  w-100 mb-2 text-center" @click="Login"><h5 id="t1" class="text-center fw-bold">Iniciar sesión</h5></button>
+                </div>
+                <br>
+                <br>
+                <div class="d-flex justify-content-center">
+                    <button id="BtnGreen" class="btn mb-2" @click="Log=1"><h8 id="t1" class="text-center fw-bold">Crear cuenta nueva</h8></button>
+                </div>
+                <br>
+                <br>
             </form>
         </div>
         <!-- Fin inicio sesion -->
