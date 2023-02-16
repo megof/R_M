@@ -30,10 +30,11 @@ createApp({
     },
     methods: {
         Login() {
-            let Users = localStorage.getItem('Users');
+            let Users = this.Users;//JSON.parse(localStorage.getItem('Users'));
             if (Users != null) {
                 Users.map(element => {
-                    if (element.Username == this.Userl) {
+                    console.log(element.Username+'-'+this.Userl+(element.Username==this.Userl))
+                    if (element.Username==this.Userl) {
                         if (element.Password == this.Passl) {
                             this.Log = 2;
                             localStorage.setItem('User', JSON.stringify(element));
@@ -42,9 +43,10 @@ createApp({
                             swal('Error', 'Invalid Password', 'error');
                         }
                     } else {
+                        console.log('asdasd')
                         swal('Error', 'Invalid Username', 'error');
                     }
-                })
+                });
 
             }
         },
@@ -71,19 +73,13 @@ createApp({
                 });
                 localStorage.setItem('Users', JSON.stringify(this.Users));
                 swal('Complete', 'User successfully registered', 'success');
+                this.Log=0;
             }
         },
         Cart() {
 
         },
         Logout() {
-
-        },
-        RandomPrice() {
-
-        },
-
-        RandomType() {
 
         },
 
@@ -95,9 +91,19 @@ createApp({
 
         },
         async ResultsC() {
+            let Cards = [];
+            let Card = '';
+            let Type = 0;
             await fetch('https://rickandmortyapi.com/api/character/?page=' + this.Page)
                 .then((response) => response.json())
-                .then((data) => this.Cards = data.results)
+                .then((data) => Cards = data.results)
+            Cards.map(element =>{
+                Type = Math.floor(Math.random() * 16);
+                Card = element;
+                Card.Price = Math.floor(Math.random() * 1101)+100;
+                Card.Type = Type>=10;                 
+                this.Cards.push(Card)
+            })
             localStorage.setItem('Cards', JSON.stringify(this.Cards))
         },
     },
