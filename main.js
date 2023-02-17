@@ -26,6 +26,7 @@ createApp({
             },],
             RM: 0,
             Page: 1,
+            Card:'',
         }
     },
     methods: {
@@ -77,8 +78,9 @@ createApp({
                 this.Log=0;
             }
         },
-        Cart() {
-
+        Cart(Card) {
+            this.Card = Card;
+            this.Log=6;
         },
         Logout() {
 
