@@ -61,10 +61,10 @@
             <table>
                 <tbody>
                     <tr v-for="C in Cards">
-                        <td>{{C[0].id}} - {{C[0].name}} <button @click="Cart(C[0])">Buy Target</button></td>
-                        <td>{{C[1].id}} - {{C[1].name}} <button @click="Cart(C[1])">Buy Target</button></td>
-                        <td>{{C[2].id}} - {{C[2].name}} <button @click="Cart(C[2])">Buy Target</button></td>
-                        <td>{{C[3].id}} - {{C[3].name}} <button @click="Cart(C[3])">Buy Target</button></td>
+                        <td>{{C[0].id}} - {{C[0].name}} <button @click="Cart(C[0])">Buy Target {{C[0].Type}}</button></td>
+                        <td>{{C[1].id}} - {{C[1].name}} <button @click="Cart(C[1])">Buy Target {{C[1].Type}}</button></td>
+                        <td>{{C[2].id}} - {{C[2].name}} <button @click="Cart(C[2])">Buy Target {{C[2].Type}}</button></td>
+                        <td>{{C[3].id}} - {{C[3].name}} <button @click="Cart(C[3])">Buy Target {{C[3].Type}}</button></td>
                     </tr>
                 </tbody>
             </table>
@@ -94,11 +94,6 @@
                     <tr v-for="Element in User.Collection">
                         <td>{{Element.Card.id}}: {{Element.Card.name}} ${{Element.Card.Price}} comprado el
                             {{Element.Date}}</td>
-                    </tr>
-                    <tr>
-                        <td>aqui va una tarjeta comprada /</td>
-                        <td>aqui va una tarjeta comprada /</td>
-                        <td>aqui va una tarjeta comprada </td>
                     </tr>
                 </tbody>
             </table>

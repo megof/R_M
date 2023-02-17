@@ -28,7 +28,7 @@ createApp({
             Page: 1,
             Card: '',
             Bid:0,
-            Try: 3,
+            Try: 2,
         }
     },
     methods: {
@@ -150,17 +150,17 @@ createApp({
         },
         BidC(){
             let luck = Math.floor(Math.random() * 2) + 1;
+            console.log(luck);831871
+            luck = (luck/100)*5;
             console.log(luck);
-            luck = 1 + ((luck/100)*5);
+            luck = Math.floor(luck * this.Card.Price);
             console.log(luck);
-            luck = luck * this.Card.Price;
-            console.log(luck);
-            if(this.Try>0){
+            if(this.Try>=0){
                 if(this.User.RM>=this.Bid){
                     if(this.Bid>this.Card.Price){
                         this.Card.Price = this.Bid + luck;              
                         swal('Puja aceptada', ('Puja actual ha subido a:' + this.Card.Price), 'warning');
-                        this.try -=1;
+                        this.Try -=1;
                     }else{
                         swal('Error', 'Debes apostar más RM', 'error');
                     }
@@ -168,6 +168,8 @@ createApp({
                     swal('Error', 'Insufficient RM', 'error');
                 }
             }else{
+                this.Try = 2;
+                this.Bid = 0;
                 this.Buy();
             }
         },
