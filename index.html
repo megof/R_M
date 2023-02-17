@@ -14,7 +14,7 @@
     <div id="root">
         <!-- inicio sesion -->
         <div id="InSe" class="container w-25 mt-5 mb-5  w-50-responsive border" v-if="Log == 0">
-            <form >
+            
                 <br>
                 <legend id="t" class="text-center fw-bold">Iniciar sesión</legend>
                 <br>
@@ -33,15 +33,14 @@
                 </div>
                 <br>
                 <br>
-            </form>
         </div>
         <!-- Fin inicio sesion -->
 
         <!-- inicio registro -->
         <div id="InSe" class="container w-25 mt-5 mb-5  w-50-responsive border" v-if="Log == 1">
-            <form >
                 <br>
                 <legend id="t" class="text-center fw-bold">Crear cuenta nueva</legend>
+                <br>
                 <br>
                 <input v-model="Userl" type="text" class="form-control"aria-describedby="emailHelp" placeholder="Usuario" required>
                 <br>
@@ -49,7 +48,7 @@
                 <br>
                 <input v-model="Email" type="email" class="form-control"aria-describedby="emailHelp" placeholder="Email" required>
                 <br>
-                <input v-model="Number" type="number" class="form-control"aria-describedby="emailHelp" placeholder="Telefono" required>
+                <input v-model="Number" type="tel" class="form-control"aria-describedby="emailHelp" placeholder="Telefono" required>
                 <br>
                 <input v-model="Passl" type="password" class="form-control"aria-describedby="emailHelp" placeholder="Password" required>
                 <br>
@@ -61,12 +60,121 @@
                 <div class="d-flex justify-content-center">
                     <button id="BtnRed" class="btn mb-2" @click="Log=0"><h8 id="t1" class="text-center fw-bold">Regresar</h8></button>
                 </div>
-                
-            </form>
         </div>
         <!-- Fin registro -->
+
+        <!--  inicio de inicio -->
+        <div id="InSe" class="container w-75 mt-5 mb-5  w-50-responsive border" v-if="Log == 2"> 
+            <br>  
+            <div class="row">
+                <div class="col">
+                    <legend id="t" class="text fw-bold">RP $5000</legend>
+                </div>
+                <div class="col-4 d-flex justify-content-center">
+                    <button id="BtnBlue" class="btn mb-2 mx-1" @click="Log=3"><h8 id="t1" class="text-center fw-bold">Ver perfil</h8></button>
+                    <button id="BtnRed" class="btn mb-2" @click="Log=0"><h8 id="t1" class="text-center fw-bold">Salir</h8></button>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <button id="BtnGreen" class="btn mb-2" @click="Log=4"><h8 id="t1" class="text-center fw-bold">Comprar RP</h8></button>
+                </div>
+            </div>
+            <br>
+                <legend id="t" class="text-center fw-bold">¡Hola Juan!</legend>
+                <legend id="t" class="text-center fw-bold">¡Bienvenido a la subasta y compra de tarjeta de Rick y Morty!</legend>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-4">
+                        <!-- Card -->
+                        <div id="card" class="card mb-3">
+                            <div class="row g-0">
+                              <div class="col-md-4">
+                                <img src="874c28bbe38e3c60abffbc9c63144ac4.jpg" class="img-fluid rounded-start" alt="Nombre del producto">
+                              </div>
+                              <div class="col-md-8 ">
+                                <div class="card-body card-success">
+                                  <h5 id="t1" class="card-title fw-bold">Nombre</h5>
+                                  <h8 id="t1" class="card-text fw-bold">Género</h8>
+                                  <br>
+                                  <h8 id="t1" class="card-text fw-bold">Raza</h8>
+                                  <br>
+                                  <h8 id="t1" class="card-text fw-bold">Estado</h8>
+                                  <br>
+                                  <h8 id="t1" class="card-text fw-bold">Precio</h8>
+                                  <br>
+                                  <br>
+                                  <button id="BtnGreen" class="btn h-5"><h8 id="t1" class="text-center fw-bold">Comprar </h8></button>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <!-- Card -->
+                    </div>
+                    <div class="col-md-4">
+                        <!-- Card -->
+                        <div id="card" class="card mb-3">
+                            <div class="row g-0">
+                              <div class="col-md-4">
+                                <img src="874c28bbe38e3c60abffbc9c63144ac4.jpg" class="img-fluid rounded-start" alt="Nombre del producto">
+                              </div>
+                              <div class="col-md-8 ">
+                                <div class="card-body card-success">
+                                  <h5 id="t1" class="card-title fw-bold">Nombre</h5>
+                                  <h8 id="t1" class="card-text fw-bold">Género</h8>
+                                  <br>
+                                  <h8 id="t1" class="card-text fw-bold">Raza</h8>
+                                  <br>
+                                  <h8 id="t1" class="card-text fw-bold">Estado</h8>
+                                  <br>
+                                  <h8 id="t1" class="card-text fw-bold">Precio</h8>
+                                  <br>
+                                  <br>
+                                  <button id="BtnGreen" class="btn h-5"><h8 id="t1" class="text-center fw-bold">Comprar </h8></button>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <!-- Card -->
+                    </div>
+                    <div class="col-md-4">
+                        <!-- Card -->
+                        <div id="card" class="card mb-3">
+                            <div class="row g-0">
+                              <div class="col-md-4">
+                                <img src="874c28bbe38e3c60abffbc9c63144ac4.jpg" class="img-fluid rounded-start" alt="Nombre del producto">
+                              </div>
+                              <div class="col-md-8 ">
+                                <div class="card-body card-success">
+                                  <h5 id="t1" class="card-title fw-bold">Nombre</h5>
+                                  <h8 id="t1" class="card-text fw-bold">Género</h8>
+                                  <br>
+                                  <h8 id="t1" class="card-text fw-bold">Raza</h8>
+                                  <br>
+                                  <h8 id="t1" class="card-text fw-bold">Estado</h8>
+                                  <br>
+                                  <h8 id="t1" class="card-text fw-bold">Precio</h8>
+                                  <br>
+                                  <br>
+                                  <button id="BtnGreen" class="btn h-5"><h8 id="t1" class="text-center fw-bold">Comprar </h8></button>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <!-- Card -->
+                    </div>
+                </div>
+                    <div class="row">
+                    <div class="col-md-4">Fila 2, Columna 1</div>
+                    <div class="col-md-4">Fila 2, Columna 2</div>
+                    <div class="col-md-4">Fila 2, Columna 3</div>
+                </div>
+            </div>
+            </div>
+        <!--  fin de inicio -->
+
     </div>
-    <!-- <script src="main.js"></script>    -->
+    <!-- <script src="main.js"></script> -->
 </body>
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 </html>
