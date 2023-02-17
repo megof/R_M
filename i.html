@@ -117,6 +117,14 @@
 
         <div v-if="Log == 6">
             <Label>Compra</Label>
+            <h3>ID: <h3 v-text="Card.id"></h3></h3>
+            <h3>Nombre: <h3 v-text="Card.name"></h3></h3>
+            <h3>Precio: <h3 v-text="Card.Price"></h3></h3>
+            <button v-show="Card.Type">Comprar</button>
+            <div v-show="!Card.Type">
+                <input type="number" name="" id="">
+                <button>Pujar</button>
+            </div>
         </div>
     </div>
     <script src="main.js"></script>

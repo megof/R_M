@@ -88,10 +88,18 @@ createApp({
 
         ShopRM() {
             this.User.RM += this.RM;
+            let Users = [];
+            this.Users.map(element => {
+                (element.Username == this.User.Username)?
+                    Users.push(this.User):
+                    Users.push(element)
+            })
+            this.Users = Users;
             localStorage.setItem('User', JSON.stringify(this.User));
-            swal('Purchased', 'Succeddfully purchased', 'success');
+            localStorage.setItem('Users', JSON.stringify(this.Users));
             this.Log = 2;
             this.RM = 0;
+            swal('Purchased', 'Succeddfully purchased', 'success');
         },
 
         BuyRM(Amount) {
@@ -128,7 +136,7 @@ createApp({
                 Type = Math.floor(Math.random() * 16);
                 Card = element;
                 Card.Price = Math.floor(Math.random() * 1101)+100;
-                Card.Type = Type>=10;                 
+                Card.Type = Type>10;                 
                 this.Cards.push(Card)
             })
             let Aux = [];
