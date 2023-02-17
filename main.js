@@ -26,7 +26,7 @@ createApp({
             },],
             RM: 0,
             Page: 1,
-            Card:'',
+            Card: '',
         }
     },
     methods: {
@@ -35,7 +35,7 @@ createApp({
             let flag = false;
             if (Users != null) {
                 Users.map(element => {
-                    if (element.Username==this.Userl) {
+                    if (element.Username == this.Userl) {
                         flag = true;
                         if (element.Password == this.Passl) {
                             this.Log = 2;
@@ -45,12 +45,12 @@ createApp({
                             swal('Error', 'Invalid Password', 'error');
                         }
                     }
-                }); 
-                if(!flag){
+                });
+                if (!flag) {
                     swal('Error', 'Invalid Username', 'error');
                 }
 
-            }            
+            }
         },
         Register() {
             let Users = JSON.parse(localStorage.getItem('Users'));
@@ -75,23 +75,21 @@ createApp({
                 });
                 localStorage.setItem('Users', JSON.stringify(this.Users));
                 swal('Complete', 'User successfully registered', 'success');
-                this.Log=0;
+                this.Log = 0;
             }
         },
         Cart(Card) {
             this.Card = Card;
-            this.Log=6;
+            this.Log = 6;
         },
         Logout() {
-
         },
-
         ShopRM() {
             this.User.RM += this.RM;
             let Users = [];
             this.Users.map(element => {
-                (element.Username == this.User.Username)?
-                    Users.push(this.User):
+                (element.Username == this.User.Username) ?
+                    Users.push(this.User) :
                     Users.push(element)
             })
             this.Users = Users;
@@ -101,12 +99,33 @@ createApp({
             this.RM = 0;
             swal('Purchased', 'Succeddfully purchased', 'success');
         },
-
         BuyRM(Amount) {
             this.RM = Amount;
             this.Log = 5;
         },
-        ing(){
+        Buy() {
+            if (this.User.RM >= this.Card.Price) {
+                this.User.RM -= this.Card.Price;
+                let Users = [];
+                this.User.Collection.push({
+                    Card: this.Card,
+                    Date: new Date(),
+                })
+                this.Users.map(element => {
+                    (element.Username == this.User.Username) ?
+                        Users.push(this.User) :
+                        Users.push(element)
+                })
+                this.Users = Users;
+                localStorage.setItem('User', JSON.stringify(this.User));
+                localStorage.setItem('Users', JSON.stringify(this.Users));
+                swal('Purchased', 'Succeddfully purchased', 'success');
+            } else {
+                swal('Error', 'Insufficient RM', 'error');
+            }
+
+        },
+        ing() {
             let Users = JSON.parse(localStorage.getItem('Users'));
             if (Users == null) {
                 this.Users.push({
@@ -120,8 +139,8 @@ createApp({
                 });
                 localStorage.setItem('Users', JSON.stringify(this.Users));
             }
-            this.Userl='A';
-            this.Passl='D';
+            this.Userl = 'A';
+            this.Passl = 'D';
             this.Log = 2;
             this.Login();
         },
@@ -132,20 +151,20 @@ createApp({
             await fetch('https://rickandmortyapi.com/api/character/?page=' + this.Page)
                 .then((response) => response.json())
                 .then((data) => Cards = data.results)
-            Cards.map(element =>{
+            Cards.map(element => {
                 Type = Math.floor(Math.random() * 16);
                 Card = element;
-                Card.Price = Math.floor(Math.random() * 1101)+100;
-                Card.Type = Type>10;                 
+                Card.Price = Math.floor(Math.random() * 1101) + 100;
+                Card.Type = Type > 10;
                 this.Cards.push(Card)
             })
             let Aux = [];
-            Aux.push(Cards.slice(0,4));
-            Aux.push(Cards.slice(4,8));
-            Aux.push(Cards.slice(8,12));
-            Aux.push(Cards.slice(12,16));
-            Aux.push(Cards.slice(16,20));
-            localStorage.setItem('pt',JSON.stringify(Aux))
+            Aux.push(Cards.slice(0, 4));
+            Aux.push(Cards.slice(4, 8));
+            Aux.push(Cards.slice(8, 12));
+            Aux.push(Cards.slice(12, 16));
+            Aux.push(Cards.slice(16, 20));
+            localStorage.setItem('pt', JSON.stringify(Aux))
             this.Cards = Aux;
             localStorage.setItem('Cards', JSON.stringify(this.Cards))
         },
