@@ -14,7 +14,13 @@ body {
   #t1{
     color:white;
   }
+  #t2{
+    color:#051F45;
+  }
   
+  #linea{
+    background-color: #5A5959;
+  }
 
   #input{
     border-radius: 10px;
@@ -34,4 +40,18 @@ body {
 
   #card{
     background-color: #6B6B6B;
+  }
+
+  #InP{
+    background-color: #A0A0A0;
+    border-radius: 10px;
+  }
+
+  #ImgRM{
+    width: 50%;
+  }
+
+  #cRP{
+    background-color: #D9D9D9;
+
   }
