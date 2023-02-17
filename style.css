@@ -27,3 +27,11 @@ body {
     border-radius: 10px;
     background-color: #4A5A7A;
   }
+  #BtnRed{
+    border-radius: 10px;
+    background-color: #B13D3D;
+  }
+
+  #card{
+    background-color: #6B6B6B;
+  }
