@@ -28,6 +28,7 @@ createApp({
             Page: 1,
             Card: '',
             Bid:0,
+            Try: 3,
         }
     },
     methods: {
@@ -98,7 +99,7 @@ createApp({
             localStorage.setItem('Users', JSON.stringify(this.Users));
             this.Log = 2;
             this.RM = 0;
-            swal('Purchased', 'Succeddfully purchased', 'success');
+            swal('Purchased', 'Successfully purchased', 'success');
         },
         BuyRM(Amount) {
             this.RM = Amount;
@@ -120,7 +121,8 @@ createApp({
                 this.Users = Users;
                 localStorage.setItem('User', JSON.stringify(this.User));
                 localStorage.setItem('Users', JSON.stringify(this.Users));
-                swal('Purchased', 'Succeddfully purchased', 'success');
+                swal('Purchased', 'Successfully purchased', 'success');
+                this.Card = '';
                 this.Log=2;
             } else {
                 swal('Error', 'Insufficient RM', 'error');
@@ -145,6 +147,29 @@ createApp({
             this.Passl = 'D';
             this.Log = 2;
             this.Login();
+        },
+        BidC(){
+            let luck = Math.floor(Math.random() * 2) + 1;
+            console.log(luck);
+            luck = 1 + ((luck/100)*5);
+            console.log(luck);
+            luck = luck * this.Card.Price;
+            console.log(luck);
+            if(this.Try>0){
+                if(this.User.RM>=this.Bid){
+                    if(this.Bid>this.Card.Price){
+                        this.Card.Price = this.Bid + luck;              
+                        swal('Puja aceptada', ('Puja actual ha subido a:' + this.Card.Price), 'warning');
+                        this.try -=1;
+                    }else{
+                        swal('Error', 'Debes apostar más RM', 'error');
+                    }
+                }else{                    
+                    swal('Error', 'Insufficient RM', 'error');
+                }
+            }else{
+                this.Buy();
+            }
         },
         async ResultsC() {
             let Cards = [];

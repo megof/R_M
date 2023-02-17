@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -10,26 +11,29 @@
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
     <div id="root">
         <!-- inicio sesion -->
         <div class="container w-25 mt-5 mb-5  w-50-responsive border" v-if="Log == 0">
-            <div >
+            <div>
                 <legend class="text-success fw-bold">Iniciar sesión</legend>
-                <input v-model="Userl" type="text" class="form-control"aria-describedby="emailHelp" placeholder="Usuario">
+                <input v-model="Userl" type="text" class="form-control" aria-describedby="emailHelp"
+                    placeholder="Usuario">
                 <br>
-                <input v-model="Passl" type="password" class="form-control"aria-describedby="emailHelp" placeholder="Password">
+                <input v-model="Passl" type="password" class="form-control" aria-describedby="emailHelp"
+                    placeholder="Password">
                 <br>
                 <button class="btn btn-success mb-2" @click="ing">Iniciar sesión</button>
                 <br>
-                <button class="btn btn-warning mb-2" @click="Log=1" >Crear Usuario</button>
+                <button class="btn btn-warning mb-2" @click="Log=1">Crear Usuario</button>
             </div>
         </div>
         <!-- Fin inicio sesion -->
 
         <!--  inicio registro -->
         <div v-if="Log == 1">
-            <div >
+            <div>
                 <input type="text" v-model="Userl">
                 <input type="text" v-model="Name">
                 <input type="email" v-model="Email">
@@ -44,12 +48,15 @@
         <!--  inicio de inicio -->
         <div v-if="Log == 2">
             <Label>Inicio</Label>
-            <h3>RM: <h3 v-text="User.RM"></h3></h3>
+            <h3>RM: <h3 v-text="User.RM"></h3>
+            </h3>
 
             <button @click="Log=4">Comprar RP</button>
             <button @click="Log=3">Ver Perfil</button>
             <button @click="Log=0">Salir</button>
-            <h3><h3 v-text="User.Username"></h3></h3>
+            <h3>
+                <h3 v-text="User.Username"></h3>
+            </h3>
             <h3>Bienvenido a la subasta</h3>
             <table>
                 <tbody>
@@ -65,10 +72,12 @@
         <!--  fin de inicio -->
 
         <!-- inicio perfil  -->
-        <div v-if="Log == 3"> 
+        <div v-if="Log == 3">
             <Label>Perfil</Label>
-            <h3>Username: <h3 v-text="User.Username"></h3></h3>
-            <h3>RM: <h3 v-text="User.RM"></h3></h3>
+            <h3>Username: <h3 v-text="User.Username"></h3>
+            </h3>
+            <h3>RM: <h3 v-text="User.RM"></h3>
+            </h3>
             <h3>-------------------------------------</h3>
             <h3>Colección</h3>
             <table>
@@ -83,7 +92,8 @@
             <table>
                 <tbody>
                     <tr v-for="Element in User.Collection">
-                        <td>{{Element.Card.id}}: {{Element.Card.name}} ${{Element.Card.Price}} comprado el {{Element.Date}}</td>
+                        <td>{{Element.Card.id}}: {{Element.Card.name}} ${{Element.Card.Price}} comprado el
+                            {{Element.Date}}</td>
                     </tr>
                     <tr>
                         <td>aqui va una tarjeta comprada /</td>
@@ -97,7 +107,7 @@
         <!-- fin perfil  -->
 
         <!-- inicio Compra RM -->
-        <div  v-if="Log == 4">
+        <div v-if="Log == 4">
             <Label>CompraRM</Label>
             <h3>Compra de Rick Points</h3>
             <button v-for="coin in Shop" @click="BuyRM(coin.Amount)">{{coin.Amount}}</button>
@@ -124,17 +134,25 @@
 
         <div v-if="Log == 6">
             <Label>Compra</Label>
-            <h3>ID: <h3 v-text="Card.id"></h3></h3>
-            <h3>Nombre: <h3 v-text="Card.name"></h3></h3>
-            <h3>Precio: <h3 v-text="Card.Price"></h3></h3>
-            <button v-show="Card.Type" @click="Buy">Comprar</button>
+            <h3>ID: <h3 v-text="Card.id"></h3>
+            </h3>
+            <h3>Nombre: <h3 v-text="Card.name"></h3>
+            </h3>
             <div v-show="!Card.Type">
+                <h3>Precio: <h3 v-text="Card.Price"></h3>
+                </h3>
+                <button @click="Buy">Comprar</button>
+            </div>
+            <div v-show="Card.Type">
+                <h3>La subasta empieza en: <h3 v-text="Card.Price"></h3>
+                </h3>
                 <input v-model="Bid" type="number" name="" id="">
-                <button @click="Buy">Pujar</button>
+                <button @click="BidC">Pujar</button>
             </div>
         </div>
     </div>
     <script src="main.js"></script>
 </body>
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
 </html>
