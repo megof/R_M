@@ -7,6 +7,7 @@ createApp({
             Passl: '',
             Users: [],
             Name: '',
+            cardCount: 0,
             Email: '',
             Phone: '',
             User: '',

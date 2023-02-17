@@ -88,7 +88,7 @@
           <button id="BtnBlue" class="btn mb-2 mx-1" @click="Log=3">
             <h8 id="t1" class="text-center fw-bold">Ver perfil</h8>
           </button>
-          <button id="BtnRed" class="btn mb-2" @click="Logout">
+          <button id="BtnRed" class="btn mb-2" @click="Log=0">
             <h8 id="t1" class="text-center fw-bold">Salir</h8>
           </button>
         </div>
@@ -105,12 +105,12 @@
       <legend id="t" class="text-center fw-bold">¡Bienvenido a la subasta y compra de tarjeta de Rick y Morty!</legend>
       <div class="container">
         <div class="row">
-          <div class="col-md-3" v-for="Ca in Cards">
+          <div class="col-md-4" v-for="Ca in Cards" >
             <!-- Card -->
             <div id="card" class="card mb-3" v-for="rd in Ca">
               <div class="row g-0">
                 <div class="col-md-3">
-                  <img :src=rd.image class="img-fluid rounded-start" alt="Nombre del producto">
+                  <img :src=rd.image class="img-fluid rounded-start " alt="Nombre de la imagen">
                 </div>
                 <div class="col-md-9">
                   <div class="card-body card-success">
@@ -132,11 +132,15 @@
                 </div>
               </div>
             </div>
-            <!-- Card -->
+            
           </div>
 
         </div>
       </div>
+
+      <button class="btn btn-success" @click="ChangePage(-1)" v-show="Page>1">Prev</button>
+      <h3>Página: {{Page}}</h3>
+      <button class="btn btn-warning" @click="ChangePage(1)">Next</button>
     </div>
     <!--  fin de inicio -->
     <!-- inicio perfil -->
