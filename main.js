@@ -11,19 +11,20 @@ createApp({
             Phone: '',
             User: '',
             Cards: [],
-            Shop: [{
-                Price: 10000,
-                Amount: 100,
-            }, {
-                Price: 20000,
-                Amount: 210,
-            }, {
-                Price: 50000,
-                Amount: 650,
-            }, {
-                Price: 100000,
-                Amount: 1500,
-            },],
+            Shop: [
+                [{
+                    Price: 10000,
+                    Amount: 100,
+                }, {
+                    Price: 20000,
+                    Amount: 210,
+                }], [{
+                    Price: 50000,
+                    Amount: 650,
+                }, {
+                    Price: 100000,
+                    Amount: 1500,
+                },],],
             RM: 0,
             Page: 1,
             Card: '',

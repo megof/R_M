@@ -1,180 +1,322 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shop RM</title>
-    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shop RM</title>
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-    <div id="root">
-        <!-- inicio sesion -->
-        <div id="InSe" class="container w-25 mt-5 mb-5  w-50-responsive border" v-if="Log == 0">
-            
-                <br>
-                <legend id="t" class="text-center fw-bold">Iniciar sesión</legend>
-                <br>
-                <br>
-                <input id="input" v-model="Userl" type="text" class="form-control" aria-describedby="emailHelp" placeholder="Usuario" required>
-                <br>
-                <input id="input" v-model="Passl" type="password" class="form-control"aria-describedby="emailHelp" placeholder="Password" required>
-                <br>
-                <div class="d-flex justify-content-center">
-                    <button id="BtnBlue" class="btn  w-100 mb-2 text-center" @click="ing"><h5 id="t1" class="text-center fw-bold">Iniciar sesión</h5></button>
-                </div>
-                <br>
-                <br>
-                <div class="d-flex justify-content-center">
-                    <button id="BtnGreen" class="btn mb-2" @click="Log=1"><h8 id="t1" class="text-center fw-bold">Crear cuenta nueva</h8></button>
-                </div>
-                <br>
-                <br>
-        </div>
-        <!-- Fin inicio sesion -->
+  <div id="root">
+    <!-- inicio sesion -->
+    <div id="InSe" class="container w-25 mt-5 mb-5  w-50-responsive border" v-show="Log == 0">
 
-        <!-- inicio registro -->
-        <div id="InSe" class="container w-25 mt-5 mb-5  w-50-responsive border" v-if="Log == 1">
-                <br>
-                <legend id="t" class="text-center fw-bold">Crear cuenta nueva</legend>
-                <br>
-                <br>
-                <input v-model="Userl" type="text" class="form-control"aria-describedby="emailHelp" placeholder="Usuario" required>
-                <br>
-                <input v-model="Name" type="text" class="form-control"aria-describedby="emailHelp" placeholder="Nombre" required>
-                <br>
-                <input v-model="Email" type="email" class="form-control"aria-describedby="emailHelp" placeholder="Email" required>
-                <br>
-                <input v-model="Phone" type="tel" class="form-control"aria-describedby="emailHelp" placeholder="Telefono" required>
-                <br>
-                <input v-model="Passl" type="password" class="form-control"aria-describedby="emailHelp" placeholder="Password" required>
-                <br>
-                <br>
-                <div class="d-flex justify-content-center">
-                    <button id="BtnGreen" class="btn mb-2" @click="Register"><h8 id="t1" class="text-center fw-bold">Crear cuenta nueva</h8></button>
-                </div>
-                <br>
-                <div class="d-flex justify-content-center">
-                    <button id="BtnRed" class="btn mb-2" @click="Log=0"><h8 id="t1" class="text-center fw-bold">Regresar</h8></button>
-                </div>
+      <br>
+      <legend id="t" class="text-center fw-bold">Iniciar sesión</legend>
+      <br>
+      <br>
+      <input id="input" v-model="Userl" type="text" class="form-control" aria-describedby="emailHelp"
+        placeholder="Usuario" required>
+      <br>
+      <input id="input" v-model="Passl" type="password" class="form-control" aria-describedby="emailHelp"
+        placeholder="Password" required>
+      <br>
+      <div class="d-flex justify-content-center">
+        <button id="BtnBlue" class="btn  w-100 mb-2 text-center" @click="ing">
+          <h5 id="t1" class="text-center fw-bold">Iniciar sesión</h5>
+        </button>
+      </div>
+      <br>
+      <br>
+      <div class="d-flex justify-content-center">
+        <button id="BtnGreen" class="btn mb-2" @click="Log=1">
+          <h8 id="t1" class="text-center fw-bold">Crear cuenta nueva</h8>
+        </button>
+      </div>
+      <br>
+      <br>
+    </div>
+    <!-- Fin inicio sesion -->
+    <!-- inicio registro -->
+    <div id="InSe" class="container w-25 mt-5 mb-5  w-50-responsive border" v-show="Log == 1">
+      <br>
+      <legend id="t" class="text-center fw-bold">Crear cuenta nueva</legend>
+      <br>
+      <br>
+      <input v-model="Userl" type="text" class="form-control" aria-describedby="emailHelp" placeholder="Usuario"
+        required>
+      <br>
+      <input v-model="Name" type="text" class="form-control" aria-describedby="emailHelp" placeholder="Nombre" required>
+      <br>
+      <input v-model="Email" type="email" class="form-control" aria-describedby="emailHelp" placeholder="Email"
+        required>
+      <br>
+      <input v-model="Phone" type="tel" class="form-control" aria-describedby="emailHelp" placeholder="Telefono"
+        required>
+      <br>
+      <input v-model="Passl" type="password" class="form-control" aria-describedby="emailHelp" placeholder="Password"
+        required>
+      <br>
+      <br>
+      <div class="d-flex justify-content-center">
+        <button id="BtnGreen" class="btn mb-2" @click="Register">
+          <h8 id="t1" class="text-center fw-bold">Crear cuenta nueva</h8>
+        </button>
+      </div>
+      <br>
+      <div class="d-flex justify-content-center">
+        <button id="BtnRed" class="btn mb-2" @click="Log=0">
+          <h8 id="t1" class="text-center fw-bold">Regresar</h8>
+        </button>
+      </div>
+    </div>
+    <!-- Fin registro -->
+    <!--  inicio de inicio -->
+    <div id="InSe" class="container w-75 mt-5 mb-5  w-50-responsive border" v-show="Log == 2">
+      <br>
+      <div class="row">
+        <div class="col">
+          <legend id="t" class="text fw-bold">RP ${{User.RM}}</legend>
         </div>
-        <!-- Fin registro -->
+        <div class="col-4 d-flex justify-content-center">
+          <button id="BtnBlue" class="btn mb-2 mx-1" @click="Log=3">
+            <h8 id="t1" class="text-center fw-bold">Ver perfil</h8>
+          </button>
+          <button id="BtnRed" class="btn mb-2" @click="Logout">
+            <h8 id="t1" class="text-center fw-bold">Salir</h8>
+          </button>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <button id="BtnGreen" class="btn mb-2" @click="Log=4">
+            <h8 id="t1" class="text-center fw-bold">Comprar RM</h8>
+          </button>
+        </div>
+      </div>
+      <br>
+      <legend id="t" class="text-center fw-bold">¡Hola {{User.Username}}!</legend>
+      <legend id="t" class="text-center fw-bold">¡Bienvenido a la subasta y compra de tarjeta de Rick y Morty!</legend>
+      <div class="container">
+        <div class="row">
+          <div class="col-md-3" v-for="Ca in Cards">
+            <!-- Card -->
+            <div id="card" class="card mb-3" v-for="rd in Ca">
+              <div class="row g-0">
+                <div class="col-md-3">
+                  <img :src=rd.image class="img-fluid rounded-start" alt="Nombre del producto">
+                </div>
+                <div class="col-md-9">
+                  <div class="card-body card-success">
+                    <h5 id="t1" class="card-title fw-bold">{{rd.name}}</h5>
+                    <h8 id="t1" class="card-text fw-bold">{{rd.gender}}</h8>
+                    <br>
+                    <h8 id="t1" class="card-text fw-bold">{{rd.species}}</h8>
+                    <br>
+                    <h8 id="t1" class="card-text fw-bold">{{rd.status}}</h8>
+                    <br>
+                    <h8 id="t1" class="card-text fw-bold" v-show="rd.Type">${{rd.Price}} (S)</h8>
+                    <h8 id="t1" class="card-text fw-bold" v-show="!rd.Type">${{rd.Price}}</h8>
+                    <br>
+                    <br>
+                    <button id="BtnGreen" class="btn h-5" @click="Cart(rd)">
+                      <h8 id="t1" class="text-center fw-bold">Comprar </h8>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Card -->
+          </div>
 
-        <!--  inicio de inicio -->
-        <div id="InSe" class="container w-75 mt-5 mb-5  w-50-responsive border" v-if="Log == 2"> 
-            <br>  
-            <div class="row">
-                <div class="col">
-                    <legend id="t" class="text fw-bold">RP $5000</legend>
+        </div>
+      </div>
+    </div>
+    <!--  fin de inicio -->
+    <!-- inicio perfil -->
+    <div id="InP" class="container w-50 mt-5 mb-5  w-50-responsive border" v-show="Log == 3">
+      <br>
+      <div class="container">
+        <img id="ImgRM" src="Rick_and_Morty.png" class="mx-auto d-block" alt="Nombre del producto">
+      </div>
+      <legend id="t1" class="text-center fw-bold">Nombre: {{User.Name}}</legend>
+      <legend id="t1" class="text-center fw-bold">Username: {{User.Username}}</legend>
+      <legend id="t1" class="text-center fw-bold">RM: ${{User.RM}}</legend>
+      <hr id="linea" class="border">
+      <legend id="t2" class="text-center fw-bold">Colección / Historial</legend>
+      <!-- coleccion -->
+      <div class="container">
+        <div class="row">
+          <div class="col-md-4" v-for="Cardh in User.Collection">
+            <!-- Card -->
+            <div id="card" class="card mb-3">
+              <div class="row g-0">
+                <div class="col-md-4">
+                  <img :src=Cardh.Card.image class="img-fluid rounded-start" alt="Nombre del producto">
                 </div>
-                <div class="col-4 d-flex justify-content-center">
-                    <button id="BtnBlue" class="btn mb-2 mx-1" @click="Log=3"><h8 id="t1" class="text-center fw-bold">Ver perfil</h8></button>
-                    <button id="BtnRed" class="btn mb-2" @click="Log=0"><h8 id="t1" class="text-center fw-bold">Salir</h8></button>
+                <div class="col-md-8 ">
+                  <div class="card-body card-success">
+                    <h5 id="t1" class="card-title fw-bold">{{Cardh.Card.name}}</h5>
+                    <h8 id="t1" class="card-text fw-bold">{{Cardh.Card.gender}}</h8>
+                    <br>
+                    <h8 id="t1" class="card-text fw-bold">{{Cardh.Card.species}}</h8>
+                    <br>
+                    <h8 id="t1" class="card-text fw-bold">{{Cardh.Date}}</h8>
+                    <br>
+                    <h8 id="t1" class="card-text fw-bold">${{Cardh.Card.Price}}</h8>
+                    <br>
+                    <br>
+
+                  </div>
                 </div>
+              </div>
             </div>
-            <div class="row">
-                <div class="col">
-                    <button id="BtnGreen" class="btn mb-2" @click="Log=4"><h8 id="t1" class="text-center fw-bold">Comprar RP</h8></button>
-                </div>
+            <!-- Card -->
+          </div>
+        </div>
+        <br>
+        <br>
+        <br>
+        <div class="d-flex justify-content-center">
+          <button id="BtnRed" class="btn mb-2" @click="Log=2">
+            <h8 id="t1" class="text-center fw-bold">Cerrar</h8>
+          </button>
+        </div>
+      </div>
+      <!-- fin colección -->
+    </div>
+    <!-- fin perfil -->
+    <!-- inicio compra RM -->
+    <div id="InP" class="container w-50 mt-5 mb-5  w-50-responsive border" v-show="Log == 4">
+      <br>
+      <div class="container">
+        <img id="ImgRM" src="frank-coins-worried.png" class="mx-auto d-block" alt="Nombre del producto">
+      </div>
+      <br>
+      <legend id="t1" class="text-center fw-bold">Compra de Rick Points</legend>
+      <br>
+      <br>
+      <!-- tarjetas de recarga -->
+      <div class="container">
+        <div class="row" v-for="T1 in Shop">
+          <div class="col-md-6" v-for="Coin in T1">
+            <div id="cRP" class="card mb-3 w-75">
+              <img src="coinH.png" class="card-img-top" alt="Imagen">
+              <div class="card-body">
+                <p class="card-text">{{Coin.Amount}}</p>
+                <p class="card-text">${{Coin.Price}}</p>
+                <button @click="BuyRM(Coin.Amount)" class="btn btn-primary">Comprar</button>
+              </div>
             </div>
-            <br>
-                <legend id="t" class="text-center fw-bold">¡Hola Juan!</legend>
-                <legend id="t" class="text-center fw-bold">¡Bienvenido a la subasta y compra de tarjeta de Rick y Morty!</legend>
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-4">
-                        <!-- Card -->
-                        <div id="card" class="card mb-3">
-                            <div class="row g-0">
-                              <div class="col-md-4">
-                                <img src="874c28bbe38e3c60abffbc9c63144ac4.jpg" class="img-fluid rounded-start" alt="Nombre del producto">
-                              </div>
-                              <div class="col-md-8 ">
-                                <div class="card-body card-success">
-                                  <h5 id="t1" class="card-title fw-bold">Nombre</h5>
-                                  <h8 id="t1" class="card-text fw-bold">Género</h8>
-                                  <br>
-                                  <h8 id="t1" class="card-text fw-bold">Raza</h8>
-                                  <br>
-                                  <h8 id="t1" class="card-text fw-bold">Estado</h8>
-                                  <br>
-                                  <h8 id="t1" class="card-text fw-bold">Precio</h8>
-                                  <br>
-                                  <br>
-                                  <button id="BtnGreen" class="btn h-5"><h8 id="t1" class="text-center fw-bold">Comprar </h8></button>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                          <!-- Card -->
-                    </div>
-                    <div class="col-md-4">
-                        <!-- Card -->
-                        <div id="card" class="card mb-3">
-                            <div class="row g-0">
-                              <div class="col-md-4">
-                                <img src="874c28bbe38e3c60abffbc9c63144ac4.jpg" class="img-fluid rounded-start" alt="Nombre del producto">
-                              </div>
-                              <div class="col-md-8 ">
-                                <div class="card-body card-success">
-                                  <h5 id="t1" class="card-title fw-bold">Nombre</h5>
-                                  <h8 id="t1" class="card-text fw-bold">Género</h8>
-                                  <br>
-                                  <h8 id="t1" class="card-text fw-bold">Raza</h8>
-                                  <br>
-                                  <h8 id="t1" class="card-text fw-bold">Estado</h8>
-                                  <br>
-                                  <h8 id="t1" class="card-text fw-bold">Precio</h8>
-                                  <br>
-                                  <br>
-                                  <button id="BtnGreen" class="btn h-5"><h8 id="t1" class="text-center fw-bold">Comprar </h8></button>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                          <!-- Card -->
-                    </div>
-                    <div class="col-md-4">
-                        <!-- Card -->
-                        <div id="card" class="card mb-3">
-                            <div class="row g-0">
-                              <div class="col-md-4">
-                                <img src="874c28bbe38e3c60abffbc9c63144ac4.jpg" class="img-fluid rounded-start" alt="Nombre del producto">
-                              </div>
-                              <div class="col-md-8 ">
-                                <div class="card-body card-success">
-                                  <h5 id="t1" class="card-title fw-bold">Nombre</h5>
-                                  <h8 id="t1" class="card-text fw-bold">Género</h8>
-                                  <br>
-                                  <h8 id="t1" class="card-text fw-bold">Raza</h8>
-                                  <br>
-                                  <h8 id="t1" class="card-text fw-bold">Estado</h8>
-                                  <br>
-                                  <h8 id="t1" class="card-text fw-bold">Precio</h8>
-                                  <br>
-                                  <br>
-                                  <button id="BtnGreen" class="btn h-5"><h8 id="t1" class="text-center fw-bold">Comprar </h8></button>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                          <!-- Card -->
-                    </div>
-                </div>
-                    <div class="row">
-                    <div class="col-md-4">Fila 2, Columna 1</div>
-                    <div class="col-md-4">Fila 2, Columna 2</div>
-                    <div class="col-md-4">Fila 2, Columna 3</div>
-                </div>
-            </div>
-            </div>
-        <!--  fin de inicio -->
+          </div>
+        </div>
+        <div class="d-flex justify-content-center">
+          <button id="BtnRed" class="btn mb-2" @click="Log=2">
+            <h8 id="t1" class="text-center fw-bold">Volver</h8>
+          </button>
+        </div>
+      </div>
+      <!-- fin de tarjetas de recarga -->
+    </div>
+    <!-- fin compra RM -->
+    <!-- inicio Metodo de pago -->
+    <div id="InP" class="container w-25 mt-5 mb-5  w-50-responsive border" v-show="Log == 5">
+      <br>
+      <div class="container">
+        <img id="ImgRM" src="metPa.png" class="mx-auto d-block">
+      </div>
+      <br>
+      <legend id="t1" class="text-center fw-bold">Metodo de pago</legend>
+      <br>
+      <br>
+      <div class="form-check">
+        <input class="form-check-input" type="radio" name="paymentMethod" id="nequiRadio" value="nequi">
+        <label class="form-check-label" for="nequiRadio">
+          <img class="w-50" src="nequi-2.svg" alt="Nequi">
+        </label>
+      </div>
+      <br>
+      <div class="form-check">
+        <input class="form-check-input" type="radio" name="paymentMethod" id="nequiRadio" value="nequi">
+        <label class="form-check-label" for="nequiRadio">
+          <img class="w-25" src="credy.webp" alt="Nequi">
+        </label>
+      </div>
+      <br>
+      <div class="form-check">
+        <input class="form-check-input" type="radio" name="paymentMethod" id="nequiRadio" value="nequi">
+        <label class="form-check-label" for="nequiRadio">
+          <img class="w-25" src="BotonPSE.png" alt="Nequi">
+        </label>
+      </div>
+      <div class="d-flex justify-content-center">
+        <button id="BtnGreen" class="btn mb-2" @click="ShopRM">
+          <h8 id="t1" class="text-center fw-bold">Pagar</h8>
+        </button>
+      </div>
 
     </div>
-    <!-- <script src="main.js"></script> -->
+    <!-- fin Metodo de pago -->
+    <!-- inicio subasta -->
+    <div id="InP" class="container w-50 mt-5 mb-5  w-50-responsive border" v-show="Log == 6">
+      <br>
+      <div class="container">
+        <img id="ImgRM" src="subast.png" class="mx-auto d-block w-25">
+      </div>
+      <br>
+      <legend id="t1" class="text-center fw-bold">Subasta o compra de tarjeta</legend>
+      <br>
+      <br>
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-lg-6">
+            <div class="card">
+              <div class="row g-0">
+                <div class="col-md-4">
+                  <img :src=Card.image alt="Imagen" class="img-fluid">
+                </div>
+                <div class="col-md-8">
+                  <div class="card-body">
+                    <h5 class="card-title">Nombre</h5>
+                    <p class="card-text">{{Card.name}}</p>
+                    <h5 class="card-title">Precio</h5>
+                    <p class="card-text">${{Card.Price}}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div v-if="Card.Type">
+        <br>
+        <br>
+        <div class="d-flex justify-content-center">
+          <input id="input" v-model="Bid" type="number" class="form-control-md" aria-describedby="emailHelp"
+            placeholder="Cantidad a pujar" required>
+        </div>
+      </div>
+      <br>
+      <div class="d-flex justify-content-center">
+        <button v-show="Card.Type" id="BtnGreen" class="btn mb-2" @click="BidC">
+          <h8 id="t1" class="text-center fw-bold">Pujar</h8>
+        </button>
+        <button v-show="!Card.Type" id="BtnGreen" class="btn mb-2" @click="Buy">
+          <h8 id="t1" class="text-center fw-bold">Pagar</h8>
+        </button>
+      </div>
+
+    </div>
+    <!-- fin subasta -->
+  </div>
+  <script src="main.js"></script>
 </body>
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
 </html>
