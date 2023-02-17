@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shop RM</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="root">
+        <!-- inicio sesion -->
+        <div id="InSe" class="container w-25 mt-5 mb-5  w-50-responsive border" v-if="Log == 0">
+            
+                <br>
+                <legend id="t" class="text-center fw-bold">Iniciar sesión</legend>
+                <br>
+                <br>
+                <input id="input" v-model="Userl" type="text" class="form-control" aria-describedby="emailHelp" placeholder="Usuario" required>
+                <br>
+                <input id="input" v-model="Passl" type="password" class="form-control"aria-describedby="emailHelp" placeholder="Password" required>
+                <br>
+                <div class="d-flex justify-content-center">
+                    <button id="BtnBlue" class="btn  w-100 mb-2 text-center" @click="ing"><h5 id="t1" class="text-center fw-bold">Iniciar sesión</h5></button>
+                </div>
+                <br>
+                <br>
+                <div class="d-flex justify-content-center">
+                    <button id="BtnGreen" class="btn mb-2" @click="Log=1"><h8 id="t1" class="text-center fw-bold">Crear cuenta nueva</h8></button>
+                </div>
+                <br>
+                <br>
+        </div>
+        <!-- Fin inicio sesion -->
+
+        <!-- inicio registro -->
+        <div id="InSe" class="container w-25 mt-5 mb-5  w-50-responsive border" v-if="Log == 1">
+                <br>
+                <legend id="t" class="text-center fw-bold">Crear cuenta nueva</legend>
+                <br>
+                <br>
+                <input v-model="Userl" type="text" class="form-control"aria-describedby="emailHelp" placeholder="Usuario" required>
+                <br>
+                <input v-model="Name" type="text" class="form-control"aria-describedby="emailHelp" placeholder="Nombre" required>
+                <br>
+                <input v-model="Email" type="email" class="form-control"aria-describedby="emailHelp" placeholder="Email" required>
+                <br>
+                <input v-model="Phone" type="tel" class="form-control"aria-describedby="emailHelp" placeholder="Telefono" required>
+                <br>
+                <input v-model="Passl" type="password" class="form-control"aria-describedby="emailHelp" placeholder="Password" required>
+                <br>
+                <br>
+                <div class="d-flex justify-content-center">
+                    <button id="BtnGreen" class="btn mb-2" @click="Register"><h8 id="t1" class="text-center fw-bold">Crear cuenta nueva</h8></button>
+                </div>
+                <br>
+                <div class="d-flex justify-content-center">
+                    <button id="BtnRed" class="btn mb-2" @click="Log=0"><h8 id="t1" class="text-center fw-bold">Regresar</h8></button>
+                </div>
+        </div>
+        <!-- Fin registro -->
+
+        <!--  inicio de inicio -->
+        <div id="InSe" class="container w-75 mt-5 mb-5  w-50-responsive border" v-if="Log == 2"> 
+            <br>  
+            <div class="row">
+                <div class="col">
+                    <legend id="t" class="text fw-bold">RP $5000</legend>
+                </div>
+                <div class="col-4 d-flex justify-content-center">
+                    <button id="BtnBlue" class="btn mb-2 mx-1" @click="Log=3"><h8 id="t1" class="text-center fw-bold">Ver perfil</h8></button>
+                    <button id="BtnRed" class="btn mb-2" @click="Log=0"><h8 id="t1" class="text-center fw-bold">Salir</h8></button>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <button id="BtnGreen" class="btn mb-2" @click="Log=4"><h8 id="t1" class="text-center fw-bold">Comprar RP</h8></button>
+                </div>
+            </div>
+            <br>
+                <legend id="t" class="text-center fw-bold">¡Hola Juan!</legend>
+                <legend id="t" class="text-center fw-bold">¡Bienvenido a la subasta y compra de tarjeta de Rick y Morty!</legend>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-4">
+                        <!-- Card -->
+                        <div id="card" class="card mb-3">
+                            <div class="row g-0">
+                              <div class="col-md-4">
+                                <img src="874c28bbe38e3c60abffbc9c63144ac4.jpg" class="img-fluid rounded-start" alt="Nombre del producto">
+                              </div>
+                              <div class="col-md-8 ">
+                                <div class="card-body card-success">
+                                  <h5 id="t1" class="card-title fw-bold">Nombre</h5>
+                                  <h8 id="t1" class="card-text fw-bold">Género</h8>
+                                  <br>
+                                  <h8 id="t1" class="card-text fw-bold">Raza</h8>
+                                  <br>
+                                  <h8 id="t1" class="card-text fw-bold">Estado</h8>
+                                  <br>
+                                  <h8 id="t1" class="card-text fw-bold">Precio</h8>
+                                  <br>
+                                  <br>
+                                  <button id="BtnGreen" class="btn h-5"><h8 id="t1" class="text-center fw-bold">Comprar </h8></button>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <!-- Card -->
+                    </div>
+                    <div class="col-md-4">
+                        <!-- Card -->
+                        <div id="card" class="card mb-3">
+                            <div class="row g-0">
+                              <div class="col-md-4">
+                                <img src="874c28bbe38e3c60abffbc9c63144ac4.jpg" class="img-fluid rounded-start" alt="Nombre del producto">
+                              </div>
+                              <div class="col-md-8 ">
+                                <div class="card-body card-success">
+                                  <h5 id="t1" class="card-title fw-bold">Nombre</h5>
+                                  <h8 id="t1" class="card-text fw-bold">Género</h8>
+                                  <br>
+                                  <h8 id="t1" class="card-text fw-bold">Raza</h8>
+                                  <br>
+                                  <h8 id="t1" class="card-text fw-bold">Estado</h8>
+                                  <br>
+                                  <h8 id="t1" class="card-text fw-bold">Precio</h8>
+                                  <br>
+                                  <br>
+                                  <button id="BtnGreen" class="btn h-5"><h8 id="t1" class="text-center fw-bold">Comprar </h8></button>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <!-- Card -->
+                    </div>
+                    <div class="col-md-4">
+                        <!-- Card -->
+                        <div id="card" class="card mb-3">
+                            <div class="row g-0">
+                              <div class="col-md-4">
+                                <img src="874c28bbe38e3c60abffbc9c63144ac4.jpg" class="img-fluid rounded-start" alt="Nombre del producto">
+                              </div>
+                              <div class="col-md-8 ">
+                                <div class="card-body card-success">
+                                  <h5 id="t1" class="card-title fw-bold">Nombre</h5>
+                                  <h8 id="t1" class="card-text fw-bold">Género</h8>
+                                  <br>
+                                  <h8 id="t1" class="card-text fw-bold">Raza</h8>
+                                  <br>
+                                  <h8 id="t1" class="card-text fw-bold">Estado</h8>
+                                  <br>
+                                  <h8 id="t1" class="card-text fw-bold">Precio</h8>
+                                  <br>
+                                  <br>
+                                  <button id="BtnGreen" class="btn h-5"><h8 id="t1" class="text-center fw-bold">Comprar </h8></button>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <!-- Card -->
+                    </div>
+                </div>
+                    <div class="row">
+                    <div class="col-md-4">Fila 2, Columna 1</div>
+                    <div class="col-md-4">Fila 2, Columna 2</div>
+                    <div class="col-md-4">Fila 2, Columna 3</div>
+                </div>
+            </div>
+            </div>
+        <!--  fin de inicio -->
+
+    </div>
+    <!-- <script src="main.js"></script> -->
+</body>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+</html>
