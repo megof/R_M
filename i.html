@@ -70,13 +70,20 @@
             <h3>Username: <h3 v-text="User.Username"></h3></h3>
             <h3>RM: <h3 v-text="User.RM"></h3></h3>
             <h3>-------------------------------------</h3>
-            <h3>Colección / Historial</h3>
+            <h3>Colección</h3>
             <table>
                 <tbody>
-                    <tr>
-                        <td>aqui va una tarjeta comprada /</td>
-                        <td>aqui va una tarjeta comprada /</td>
-                        <td>aqui va una tarjeta comprada</td>
+                    <tr v-for="Element in User.Collection">
+                        <td>{{Element.Card.id}}: {{Element.Card.name}}</td>
+                    </tr>
+                </tbody>
+            </table>
+            <h3>-------------------------------------</h3>
+            <h3>Historial</h3>
+            <table>
+                <tbody>
+                    <tr v-for="Element in User.Collection">
+                        <td>{{Element.Card.id}}: {{Element.Card.name}} ${{Element.Card.Price}} comprado el {{Element.Date}}</td>
                     </tr>
                     <tr>
                         <td>aqui va una tarjeta comprada /</td>
@@ -120,10 +127,10 @@
             <h3>ID: <h3 v-text="Card.id"></h3></h3>
             <h3>Nombre: <h3 v-text="Card.name"></h3></h3>
             <h3>Precio: <h3 v-text="Card.Price"></h3></h3>
-            <button v-show="Card.Type">Comprar</button>
+            <button v-show="Card.Type" @click="Buy">Comprar</button>
             <div v-show="!Card.Type">
-                <input type="number" name="" id="">
-                <button>Pujar</button>
+                <input v-model="Bid" type="number" name="" id="">
+                <button @click="Buy">Pujar</button>
             </div>
         </div>
     </div>

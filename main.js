@@ -27,6 +27,7 @@ createApp({
             RM: 0,
             Page: 1,
             Card: '',
+            Bid:0,
         }
     },
     methods: {
@@ -120,6 +121,7 @@ createApp({
                 localStorage.setItem('User', JSON.stringify(this.User));
                 localStorage.setItem('Users', JSON.stringify(this.Users));
                 swal('Purchased', 'Succeddfully purchased', 'success');
+                this.Log=2;
             } else {
                 swal('Error', 'Insufficient RM', 'error');
             }
@@ -134,7 +136,7 @@ createApp({
                     Email: 'C',
                     Phone: 0,
                     Password: 'D',
-                    RM: 0,
+                    RM: 100000,
                     Collection: [],
                 });
                 localStorage.setItem('Users', JSON.stringify(this.Users));
@@ -164,7 +166,7 @@ createApp({
             Aux.push(Cards.slice(8, 12));
             Aux.push(Cards.slice(12, 16));
             Aux.push(Cards.slice(16, 20));
-            localStorage.setItem('pt', JSON.stringify(Aux))
+            //localStorage.setItem('pt', JSON.stringify(Aux))
             this.Cards = Aux;
             localStorage.setItem('Cards', JSON.stringify(this.Cards))
         },
