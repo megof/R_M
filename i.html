@@ -58,6 +58,9 @@
                 <h3 v-text="User.Username"></h3>
             </h3>
             <h3>Bienvenido a la subasta</h3>
+            <button @click="ChangePage(-1)" v-show="Page>1">Prev</button>
+            <h3>Página: {{Page}}</h3>
+            <button @click="ChangePage(1)">Next</button>
             <table>
                 <tbody>
                     <tr v-for="C in Cards">

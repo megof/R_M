@@ -169,6 +169,7 @@ createApp({
                 }
             }else{
                 this.Try = 2;
+                this.Card.Price=this.Bid;
                 this.Bid = 0;
                 this.Buy();
             }
@@ -185,7 +186,7 @@ createApp({
                 Card = element;
                 Card.Price = Math.floor(Math.random() * 1101) + 100;
                 Card.Type = Type > 10;
-                this.Cards.push(Card)
+                this.Cards.push(Card);
             })
             let Aux = [];
             Aux.push(Cards.slice(0, 4));
@@ -196,6 +197,10 @@ createApp({
             //localStorage.setItem('pt', JSON.stringify(Aux))
             this.Cards = Aux;
             localStorage.setItem('Cards', JSON.stringify(this.Cards))
+        },
+        ChangePage(Page){
+            this.Page += Page;
+            this.ResultsC();
         },
     },
     mounted() {
