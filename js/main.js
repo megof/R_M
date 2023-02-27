@@ -29,7 +29,7 @@ createApp({
             RM: 0,
             Page: 1,
             Card: '',
-            Bid:0,
+            Bid: 0,
             Try: 2,
         }
     },
@@ -125,7 +125,7 @@ createApp({
                 localStorage.setItem('Users', JSON.stringify(this.Users));
                 swal('Purchased', 'Successfully purchased', 'success');
                 this.Card = '';
-                this.Log=2;
+                this.Log = 2;
             } else {
                 swal('Error', 'Insufficient RM', 'error');
             }
@@ -150,28 +150,28 @@ createApp({
             this.Log = 2;
             this.Login();
         },
-        BidC(){
+        BidC() {
             let luck = Math.floor(Math.random() * 2) + 1;
-            console.log(luck);831871
-            luck = (luck/100)*5;
+            console.log(luck); 831871
+            luck = (luck / 100) * 5;
             console.log(luck);
             luck = Math.floor(luck * this.Card.Price);
             console.log(luck);
-            if(this.Try>=0){
-                if(this.User.RM>=this.Bid){
-                    if(this.Bid>this.Card.Price){
-                        this.Card.Price = this.Bid + luck;              
+            if (this.Try >= 0) {
+                if (this.User.RM >= this.Bid) {
+                    if (this.Bid > this.Card.Price) {
+                        this.Card.Price = this.Bid + luck;
                         swal('Puja aceptada', ('Puja actual ha subido a:' + this.Card.Price), 'warning');
-                        this.Try -=1;
-                    }else{
+                        this.Try -= 1;
+                    } else {
                         swal('Error', 'Debes apostar más RM', 'error');
                     }
-                }else{                    
+                } else {
                     swal('Error', 'Insufficient RM', 'error');
                 }
-            }else{
+            } else {
                 this.Try = 2;
-                this.Card.Price=this.Bid;
+                this.Card.Price = this.Bid;
                 this.Bid = 0;
                 this.Buy();
             }
@@ -200,7 +200,7 @@ createApp({
             this.Cards = Aux;
             localStorage.setItem('Cards', JSON.stringify(this.Cards))
         },
-        ChangePage(Page){
+        ChangePage(Page) {
             this.Page += Page;
             this.ResultsC();
         },
