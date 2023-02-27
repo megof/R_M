@@ -157,7 +157,7 @@
       <!-- coleccion -->
       <div class="container">
         <div class="row">
-          <div class="col-md-4" v-for="Cardh in User.Collection">
+          <div class="col-md-4" v-for="Cardh in User.History">
             <!-- Card -->
             <div id="card" class="card mb-3">
               <div class="row g-0">
@@ -171,18 +171,34 @@
                     <br>
                     <h8 id="t1" class="card-text fw-bold">{{Cardh.Card.species}}</h8>
                     <br>
-                    <h8 id="t1" class="card-text fw-bold">{{Cardh.Date}}</h8>
-                    <br>
-                    <h8 id="t1" class="card-text fw-bold">${{Cardh.Card.Price}}</h8>
+                    <h8 id="t1" class="card-text fw-bold">Tienes {{Cardh.Amount}}</h8>
                     <br>
                     <br>
-
                   </div>
                 </div>
               </div>
             </div>
             <!-- Card -->
           </div>
+        </div>
+        <br>
+        <div class="row">
+          <table class="table table-hover center">
+            <tr>
+              <th></th>
+              <th>Id</th>
+              <th>Name</th>
+              <th>Price</th>
+              <th>Date</th>
+            </tr>
+            <tr v-for="Ch in User.Collection">
+              <td><img :src=Ch.Card.image id="tba" alt=""></td>
+              <td>{{Ch.Card.id}}</td>
+              <td>{{Ch.Card.Name}}</td>
+              <td>{{Ch.Card.Price}}</td>
+              <td>{{Ch.Date}}</td>
+            </tr>
+          </table>
         </div>
         <br>
         <br>

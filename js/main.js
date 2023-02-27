@@ -31,6 +31,7 @@ createApp({
             Card: '',
             Bid: 0,
             Try: 2,
+            Collection: [],
         }
     },
     methods: {
@@ -76,6 +77,7 @@ createApp({
                     Password: this.Passl,
                     RM: 0,
                     Collection: [],
+                    History: [],
                 });
                 localStorage.setItem('Users', JSON.stringify(this.Users));
                 swal('Complete', 'User successfully registered', 'success');
@@ -111,10 +113,32 @@ createApp({
             if (this.User.RM >= this.Card.Price) {
                 this.User.RM -= this.Card.Price;
                 let Users = [];
+                let History = [];
+                let State = true;
                 this.User.Collection.push({
                     Card: this.Card,
                     Date: new Date(),
                 })
+                if (this.User.History.length != 0) {
+                    this.User.History.map(element => {
+                        if (element.Card.id == this.Card.id) {
+                            History.push({
+                                Card: this.Card,
+                                Amount: element.Amount + 1,
+                            })
+                            State = false;
+                        } else {
+                            History.push(element);
+                        }
+                    })
+                }
+                if (State) {
+                    History.push({
+                        Card: this.Card,
+                        Amount: 1,
+                    })
+                }
+                this.User.History = History;
                 this.Users.map(element => {
                     (element.Username == this.User.Username) ?
                         Users.push(this.User) :
@@ -142,6 +166,7 @@ createApp({
                     Password: 'D',
                     RM: 100000,
                     Collection: [],
+                    History: [],
                 });
                 localStorage.setItem('Users', JSON.stringify(this.Users));
             }
